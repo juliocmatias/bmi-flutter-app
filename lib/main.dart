@@ -1,6 +1,6 @@
-import 'package:bmiapp/pages/login.dart';
+import 'package:bmiapp/my_app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Login());
+  runApp(const MyApp());
 }
