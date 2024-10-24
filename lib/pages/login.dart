@@ -1,4 +1,4 @@
-import 'package:bmiapp/pages/calculator_bmi.dart';
+import 'package:bmiapp/pages/main_page.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const CalculatorBmi(),
+            builder: (context) => const MainPage(),
           ));
     } else {
       showAlertDialog('Erro Login', 'email ou senha invalido');
