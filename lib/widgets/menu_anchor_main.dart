@@ -1,15 +1,9 @@
 import 'package:bmiapp/pages/login.dart';
-import 'package:bmiapp/pages/profile.dart';
 import 'package:flutter/material.dart';
 
-class MenuAnchorMain extends StatefulWidget {
-  const MenuAnchorMain({super.key});
-
-  @override
-  State<MenuAnchorMain> createState() => _MenuAnchorMainState();
-}
-
-class _MenuAnchorMainState extends State<MenuAnchorMain> {
+class MenuAnchorMain extends StatelessWidget {
+  final PageController pageController;
+  MenuAnchorMain({super.key, required this.pageController});
   final MenuController _menuController = MenuController();
 
   void toggleMenu() {
@@ -31,8 +25,7 @@ class _MenuAnchorMainState extends State<MenuAnchorMain> {
       menuChildren: [
         MenuItemButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Profile()));
+            pageController.jumpToPage(2);
           },
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

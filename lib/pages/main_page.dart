@@ -1,3 +1,6 @@
+import 'package:bmiapp/pages/main_page_view.dart';
+import 'package:bmiapp/pages/person_register.dart';
+import 'package:bmiapp/pages/profile.dart';
 import 'package:bmiapp/widgets/menu_anchor_main.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +12,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  PageController pageController = PageController(initialPage: 1);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,11 +35,16 @@ class _MainPageState extends State<MainPage> {
                 'Calculadora IMC',
                 style: TextStyle(color: Colors.white),
               ),
-              const MenuAnchorMain()
+              MenuAnchorMain(
+                pageController: pageController,
+              )
             ],
           ),
         ),
-        body: Container(),
+        body: PageView(
+          controller: pageController,
+          children: const [PersonRegister(), MainPageView(), Profile()],
+        ),
       ),
     );
   }
