@@ -25,7 +25,11 @@ class MenuAnchorMain extends StatelessWidget {
       menuChildren: [
         MenuItemButton(
           onPressed: () {
-            pageController.jumpToPage(2);
+            pageController.animateToPage(
+              2,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeIn,
+            );
           },
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
