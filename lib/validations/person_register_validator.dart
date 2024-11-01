@@ -60,7 +60,7 @@ class PersonRegisterValidator extends LucidValidator<Person> {
           0,
           message: 'O peso deve ser um número decimal maior que zero.',
         )
-        .range(5, 300, message: 'O peso deve estar entre 5 e 300 kg.');
+        .range(5, 500, message: 'O peso deve estar entre 5 e 500 kg.');
 
     ruleFor((person) => person.height, key: 'height')
         .greaterThan(
