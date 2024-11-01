@@ -1,5 +1,6 @@
 import 'package:bmiapp/pages/login.dart';
 import 'package:bmiapp/stores/login_store.dart';
+import 'package:bmiapp/stores/people_store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +10,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loginStore = context.watch<LoginStore>();
+    final peopleRegistered = context.read<PeopleStore>();
 
     return SafeArea(
       child: Scaffold(
@@ -49,6 +51,7 @@ class Profile extends StatelessWidget {
                     width: 100,
                     child: FilledButton(
                         onPressed: () {
+                          peopleRegistered.state.people.clear();
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

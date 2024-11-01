@@ -1,5 +1,7 @@
 import 'package:bmiapp/pages/login.dart';
+import 'package:bmiapp/stores/people_store.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MenuAnchorMain extends StatelessWidget {
   final PageController pageController;
@@ -16,6 +18,8 @@ class MenuAnchorMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final peopleRegistered = context.read<PeopleStore>();
+
     return MenuAnchor(
       controller: _menuController,
       style: MenuStyle(
@@ -51,6 +55,7 @@ class MenuAnchorMain extends StatelessWidget {
         ),
         MenuItemButton(
           onPressed: () {
+            peopleRegistered.state.people.clear();
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const Login()));
           },
