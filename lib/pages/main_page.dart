@@ -13,6 +13,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   PageController pageController = PageController(initialPage: 1);
+  var currentPage = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +42,49 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        body: PageView(
-          controller: pageController,
+        body: Column(
           children: [
-            PersonRegister(
-              pageController: pageController,
+            Expanded(
+              child: PageView(
+                onPageChanged: (index) {
+                  setState(() {
+                    currentPage = index;
+                  });
+                },
+                controller: pageController,
+                children: [
+                  PersonRegister(
+                    pageController: pageController,
+                  ),
+                  const MainPageView(),
+                  const Profile()
+                ],
+              ),
             ),
-            const MainPageView(),
-            const Profile()
+            BottomNavigationBar(
+              currentIndex: currentPage,
+              onTap: (index) {
+                pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.easeIn,
+                );
+              },
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person_add),
+                  label: 'Cadastrar',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.people),
+                  label: 'Pessoas',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'Perfil',
+                ),
+              ],
+            ),
           ],
         ),
       ),
