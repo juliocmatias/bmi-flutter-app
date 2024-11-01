@@ -47,7 +47,7 @@ _Este é um projeto desenvolvido em Dart com o framework Flutter, focando no des
 
 - Caso queria apenas ver o funcionamento do aplicativo baixo o APK e instale em seu smartphone android:
 
-    clique [aqui](app-release.apk) para baixar o arquivo.
+    clique [aqui](https://github.com/juliocmatias/bmi-flutter-app/blob/main/app-release.apk) para baixar o arquivo e depois clique em `view raw`.
 
 </details>
 
